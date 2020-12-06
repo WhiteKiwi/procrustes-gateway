@@ -20,9 +20,15 @@ export const HTTP_STATUS_CODE = {
 	InternalServerError: 500,
 }
 
+export const SERVICES = {
+	API_BACKEND: 'API_BACKEND',
+	WANDERER: 'WANDERER',
+}
+
 const constants = {
 	ENVIRONMENT,
 	HTTP_STATUS_CODE,
+	SERVICES,
 }
 
 export default constants

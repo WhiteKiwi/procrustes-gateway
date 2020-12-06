@@ -13,12 +13,18 @@ if (ESSENTIAL_ENVIRONMENT_VARIABLES.includes(undefined) || ESSENTIAL_ENVIRONMENT
 
 export const PORT = process.env.PORT || 3000
 
-process.env.ENVIRONMENT = (process.env.ENVIRONMENT || ENV.DEVELOPMENT).toUpperCase()
+if (process.env.NODE_ENV && process.env.NODE_ENV.toUpperCase() === ENV.TEST) {
+	process.env.ENVIRONMENT = ENV.TEST
+} else {
+	process.env.ENVIRONMENT = (process.env.ENVIRONMENT || ENV.DEVELOPMENT).toUpperCase()
+}
 export const ENVIRONMENT = process.env.ENVIRONMENT
+
 export const API = {
 	API_BACKEND: process.env.API_BACKEND_URL,
 	WANDERER: process.env.WANDERER_URL,
 }
+
 
 export default {
 	PORT,
